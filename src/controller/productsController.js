@@ -1,5 +1,8 @@
 import { productsService } from "../services/productsService.js";
 import { isValidObjectId } from 'mongoose';
+import { CustomError } from "../utils/CustomError.js";
+import { productPostArguments } from "../utils/errorCauses.js";
+import { ERROR_CODES } from "../utils/EErrors.js";
 
 export class ProductsController{
     static getProducts=async(req,res)=>{
@@ -59,7 +62,7 @@ export class ProductsController{
         }
     }
 
-    static postProduct=async(req, res)=>{
+    static postProduct=async(req, res, next)=>{
         const {title, description, code, price, stock,category,thumbnails} = req.body
         res.setHeader('Content-type', 'application/json');
     
@@ -75,13 +78,23 @@ export class ProductsController{
         }
     
         for(const property in prodToPost){
-                if(prodToPost[property] === undefined){               
-                    return res.status(400).json({
-                        error:`Error 400 - Product was not added - Please try again`,
-                        message: `Failed to complete product posting due to missing property: ${property.toUpperCase()}. The following properties are always mandatory: title, description, code, price and stock. Please verify and try again.`                
-                    })
+                if(prodToPost[property] === undefined){     
+                    
+                    
+                    // return res.status(400).json({
+                    //     error:`Error 400 - Product was not added - Please try again`,
+                    //     message: `Failed to complete product posting due to missing property: ${property.toUpperCase()}. The following properties are always mandatory: title, description, code, price and stock. Please verify and try again.`                
+                    // })
+                    try{
+                        CustomError.createError("Missing Properties", productPostArguments(prodToPost),`Property ${property} is missing`, ERROR_CODES.INVALID_ARGUMENTS)
+                    }catch(error){
+                        return next(error)
+                    }
+                   
                 }            
         }  
+
+        //CustomError.createError("argumento name faltante",argumentosHeroes(req.body),"complete la propiedad name", TIPOS_ERROR.ARGUMENTOS_INVALIDOS)
         
         try{
             const duplicateCode = await productsService.getProductBy({code: code})

@@ -1,0 +1,52 @@
+[
+  {
+    "code": 400,
+    "name": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:06:22 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64257, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n        Error Log Details: \n            - Error Date:Mon, 01 Jul 2024 18:06:22 GMT\n            - Error User:gallo\n            - Error Terminal:DESKTOP-65AN4BL\n    ",
+    "id": 1
+  },
+  {
+    "code": 400,
+    "name": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:06:30 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64257, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n        Error Log Details: \n            - Error Date:Mon, 01 Jul 2024 18:06:30 GMT\n            - Error User:gallo\n            - Error Terminal:DESKTOP-65AN4BL\n    ",
+    "id": 2
+  },
+  {
+    "code": 400,
+    "name": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:06:33 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64257, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n        Error Log Details: \n            - Error Date:Mon, 01 Jul 2024 18:06:33 GMT\n            - Error User:gallo\n            - Error Terminal:DESKTOP-65AN4BL\n    ",
+    "id": 3
+  },
+  {
+    "code": 400,
+    "name": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:06:36 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64257, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n        Error Log Details: \n            - Error Date:Mon, 01 Jul 2024 18:06:36 GMT\n            - Error User:gallo\n            - Error Terminal:DESKTOP-65AN4BL\n    ",
+    "id": 4
+  },
+  {
+    "code": 400,
+    "name": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:07:16 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64257, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n        Error Log Details: \n            - Error Date:Mon, 01 Jul 2024 18:07:16 GMT\n            - Error User:gallo\n            - Error Terminal:DESKTOP-65AN4BL\n    ",
+    "id": 5
+  }
+]
