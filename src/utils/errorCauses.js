@@ -49,4 +49,20 @@ export function notProcessed(){
         Please contact support or try again later.
     `
 }
+
+export function authentication(){
+    return `
+        Invalid credentials - no authenticated users were found.
+        A valid user must be registered and logged in to access this resource
+    `
+}
+
+
+export function authorization(){
+    return `
+        Invalid credentials - user logged has insufficient privileges to access this resource.
+        The access to this resource is limited to authorized users with correspondent privileges. 
+        If you believe this is a mistake and you should be able to access this content please contact support. 
+    `
+}
     

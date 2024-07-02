@@ -512,5 +512,15 @@
     "terminal": "DESKTOP-65AN4BL",
     "details": "\n        Element requested through identification pid# 663d209960f80adeaa82bb77 was not found in our database.\n    ",
     "id": 53
+  },
+  {
+    "code": 401,
+    "type": "Authentication failed",
+    "msg": "A valid user must be registered and logged in to proceed",
+    "date": "Tue, 02 Jul 2024 00:51:19 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid credentials - no authenticated users were found.\n        A valid user must be registered and logged in to access this resource\n    ",
+    "id": 54
   }
 ]
