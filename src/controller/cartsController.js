@@ -7,6 +7,9 @@ import { uniqueTicketCode } from '../utils.js';
 import { sendEmail } from '../utils.js';
 import { UsersManagerMongo as UsersManager } from '../dao/usersManagerMONGO.js';
 import { config } from '../config/config.js';
+import { CustomError } from "../utils/CustomError.js";
+import { invalidCartBody, notFound, notProcessed } from "../utils/errorCauses.js";
+import { ERROR_CODES } from "../utils/EErrors.js";
 // import { TicketsMongoDAO } from '../dao/ticketsMongoDAO.js';
 
 const usersManager = new UsersManager()
@@ -162,97 +165,128 @@ export class CartsController{
         }
     }
 
-    static updateProductInCart=async(req,res)=>{
+    static updateProductInCart=async(req,res,next)=>{
         const {cid, pid} = req.params
         const {qty} = req.body
         res.setHeader('Content-type', 'application/json');
         
-        if(!isValidObjectId(cid)){
-            return res.status(400).json({error:`The Cart ID# provided is not an accepted Id Format in MONGODB database. Please verify your Cart ID# and try again`})
-        }
-    
-        if(!isValidObjectId(pid)){
-            return res.status(400).json({error:`The Product ID# provided is not an accepted Id Format in MONGODB database. Please verify your Product ID# and try again`})
-        }
-    
-        // future improvement: see if can improve/simplify UX logic (eg. allow for null OR [] OR {} to result in +1 instead of error)
-        const regexValidBodyFormat = /^\{.*\}$/
-        const fullBody = JSON.stringify(req.body)
-        if(!regexValidBodyFormat.test(fullBody)){    
-            return res.status(400).json({
-                error: 'Invalid format in request body',
-                message:  `Failed to increase requested qty of product id#${pid} in cart id#${cid} due to invalid format request. Quantities can only be increased by notifying the quantity to add, through a valid JSON format (Alike simple object: {"qty":x} ). If you leave the body empty or send an empty object (eg. {}) the quantity will be added by 1 (+1). Any other body structure results in request failure.`
-            })
-        }
-    
-        try{         
+        try{
+            if(!isValidObjectId(cid)){
+                return res.status(400).json({error:`The Cart ID# provided is not an accepted Id Format in MONGODB database. Please verify your Cart ID# and try again`})
+            }
+        
+            if(!isValidObjectId(pid)){
+                return res.status(400).json({error:`The Product ID# provided is not an accepted Id Format in MONGODB database. Please verify your Product ID# and try again`})
+            }
+        
+            // future improvement: see if can improve/simplify UX logic (eg. allow for null OR [] OR {} to result in +1 instead of error)
+            const regexValidBodyFormat = /^\{.*\}$/
+            const fullBody = JSON.stringify(req.body)
+            if(!regexValidBodyFormat.test(fullBody,pid,cid)){ 
+                return next(
+                    CustomError.createError(
+                        "Invalid Body Format", 
+                        invalidCartBody(fullBody),
+                        `Qty to increase invalid format`, 
+                        ERROR_CODES.INVALID_ARGUMENTS)
+                )     
+            }
+
             const productIsValid = await productsService.getProductBy({_id:pid})
             if(!productIsValid){
-                return res.status(400).json({
-                    error: `ERROR: Product id# provided is not valid`,
-                    message: `Failed to update cart with Id#${cid} due to invalid argument: The product id provided (id#${pid}) does not exist in our database. Please verify and try again`
-                })
+                return next(CustomError.createError(
+                    "Product not found",
+                    notFound(pid,"pid"),
+                    `pid  #${pid} was not found`, 
+                    ERROR_CODES.RESOURCE_NOT_FOUND
+                ))
             }
    
             const cartIsValid = await cartsService.getCartById(cid)
             if(!cartIsValid){
-                return res.status(400).json({
-                    error: `ERROR: Cart id# provided is not valid`,
-                    message: `Failed to update cart due to invalid argument: The Cart id provided (id#${cid}) does not exist in our database. Please verify and try again`
-                })
+                return next(CustomError.createError(
+                    "Cart not found",
+                    notFound(cid,"cid"),
+                    `cid #${cid} was not found`, 
+                    ERROR_CODES.RESOURCE_NOT_FOUND
+                ))
             }
-        }catch(error){
-            return res.status(500).json({
-                error:`Error 500 Server failed unexpectedly, please try again later`,
-                message: `${error.message}`
-            })
-        }
-        
-        try{
+
+            //future improvement - seek for better method (change +1 for +N even on first iteration if desired) // needs qty to be updated properly
             const productAlreadyInCart = await cartsService.findProductInCart(cid,pid) 
-            if(productAlreadyInCart){
-                try{
-                    const updatedCart = await cartsService.updateProductQtyInCart(cid,pid,qty)
-                    if(!updatedCart){
-                        return res.status(404).json({
-                            error: `ERROR: Failed to update the intended product quantity in cart`,
-                            message: `Failed to update quantity of product id#${pid} in cart id#${cid} Please verify and try again`
-                        })
-                    }
-                    return res.status(200).json({ updatedCart });
-                }catch(error){
-                    return res.status(500).json({
-                        error:`Error 500 Server failed unexpectedly, please try again later`,
-                        message: `${error.message}`
-                    })
-                }
+            if(!productAlreadyInCart){
+               const updatedCart =  await cartsService.addProductToCart(cid,pid)
+               if(!updatedCart){
+                return next(CustomError.createError(
+                    "New product was not added to cart",
+                    notProcessed(),
+                    `Product pid#${pid} could not be added to cart cid#${cid}`,
+                    ERROR_CODES.INTERNAL_SERVER_ERROR
+                ))
+               }
+               return res.status(200).json({ updatedCart });
             }
+
+            const updatedCart = await cartsService.updateProductQtyInCart(cid,pid,qty)
+            if(!updatedCart){
+                return next(CustomError.createError(
+                    "Quantity of selected product was not increased in cart",
+                    notProcessed(),
+                    `Product pid#${pid} could not be increased cart ${cid} by the inteded quantity of ${qty} units. Product remained with original quantity`,
+                    ERROR_CODES.INTERNAL_SERVER_ERROR
+                ))
+            }
+
+            return res.status(200).json({ updatedCart });
         }catch(error){
-            return res.status(500).json({
-                error:`Error 500 Server failed unexpectedly, please try again later`,
-                message: `${error.message}`
-            })
-        }
+            next(error)
+        }  
+        
+        // try{
+        //     const productAlreadyInCart = await cartsService.findProductInCart(cid,pid) 
+        //     if(productAlreadyInCart){
+        //         try{
+        //             const updatedCart = await cartsService.updateProductQtyInCart(cid,pid,qty)
+        //             if(!updatedCart){
+        //                 return res.status(404).json({
+        //                     error: `ERROR: Failed to update the intended product quantity in cart`,
+        //                     message: `Failed to update quantity of product id#${pid} in cart id#${cid} Please verify and try again`
+        //                 })
+        //             }
+        //             return res.status(200).json({ updatedCart });
+        //         }catch(error){
+        //             return res.status(500).json({
+        //                 error:`Error 500 Server failed unexpectedly, please try again later`,
+        //                 message: `${error.message}`
+        //             })
+        //         }
+        //     }
+        // }catch(error){
+        //     return res.status(500).json({
+        //         error:`Error 500 Server failed unexpectedly, please try again later`,
+        //         message: `${error.message}`
+        //     })
+        // }
        
     
         //future improvement - seek for better method (change +1 for +N even on first iteration if desired)
-        try{
-            const updatedCart = await cartsService.addProductToCart(cid,pid)
-            if(!updatedCart){
-                return res.status(404).json({
-                    error: `ERROR: Failed to update the intended product in cart`,
-                    message: `Failed to increase quantity of product id#${pid} in cart id#${cid} Please verify and try again`
-                })
-            }
-            return res.status(200).json({
-                updatedCart
-            })   
-        }catch(error){
-            return res.status(500).json({
-                error:`Error 500 Server failed unexpectedly, please try again later`,
-                message: `${error.message}`
-            })
-        }
+        // try{
+        //     const updatedCart = await cartsService.addProductToCart(cid,pid)
+        //     if(!updatedCart){
+        //         return res.status(404).json({
+        //             error: `ERROR: Failed to update the intended product in cart`,
+        //             message: `Failed to increase quantity of product id#${pid} in cart id#${cid} Please verify and try again`
+        //         })
+        //     }
+        //     return res.status(200).json({
+        //         updatedCart
+        //     })   
+        // }catch(error){
+        //     return res.status(500).json({
+        //         error:`Error 500 Server failed unexpectedly, please try again later`,
+        //         message: `${error.message}`
+        //     })
+        // }
     }
 
     static deleteAllProductsInCart=async(req,res)=>{

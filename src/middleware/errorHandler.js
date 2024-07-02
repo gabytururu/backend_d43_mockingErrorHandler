@@ -10,14 +10,16 @@ import __dirname from '../utils.js'
 export const errorHandler=async(error,req,res,next)=>{
     const errorLogUrl= path.join(__dirname,'errors','errorlog.json')
     const errorReason= error.cause?error.cause:error.message
+    const fullError = error
+    console.log('el error completo -->',error)
     const errorDetails = {
         code:error.code,
-        name: error.name,
+        type: error.name,
         msg: error.message,
         date: new Date().toUTCString(),
         user: os.userInfo().username,
         terminal: os.hostname(),
-        details: error.cause.toString()
+        details: error.cause
     }
 
     console.log(`New Error Registered. Identified Cause: ${util.inspect(errorDetails,{ depth: null, colors: false, breakLength: 80 })}`)
@@ -39,33 +41,50 @@ export const errorHandler=async(error,req,res,next)=>{
             return res.status(400).json({
                 code: `Error: ${ERROR_CODES.INVALID_ARGUMENTS}`,
                 error:`Cause: Invalid or Missing Arguments`,
-                name: `${error.name}`,
+                type: `${error.name}`,
                 message: `${error.message}`,
                 
             })
         case ERROR_CODES.AUTENTICATION: 
             res.setHeader('Content-type', 'application/json');
             return res.status(401).json({
-                error:`Error 401 Action Failed: Authentication Required`,
-                message: `${errorReason}`
+                code: `Error: ${ERROR_CODES.AUTENTICATION}`,
+                error:`Cause: Authentication required`,
+                type: `${error.name}`,
+                message: `${error.message}`,
             })
         case ERROR_CODES.AUTHORIZATION: 
         res.setHeader('Content-type', 'application/json');
         return res.status(403).json({
-            error:`Error 403 Action Failed: Forbidden, user lacks access rights to the requested content`,
-            message: `${errorReason}`
+            code: `Error: ${ERROR_CODES.AUTHORIZATION}`,
+            error:`Cause: Forbidden, user lacks access rights to the requested content`,
+            type: `${error.name}`,
+            message: `${error.message}`,
         })
         case ERROR_CODES.RESOURCE_NOT_FOUND: 
         res.setHeader('Content-type', 'application/json');
         return res.status(404).json({
-            error:`Error 404 Action Failed: Requested resource not found`,
-            message: `${errorReason}`
+            code: `Error: ${ERROR_CODES.RESOURCE_NOT_FOUND}`,
+            error:`Cause: Requested resource was not found`,
+            type: `${error.name}`,
+            message: `${error.message}`,
         })
         case ERROR_CODES.INTERNAL_SERVER_ERROR: 
         res.setHeader('Content-type', 'application/json');
         return res.status(500).json({
-            error:`Error 500: Internal - server failed. Please contact support or try again later`,
-            message: `${errorReason}`
+            code: `Error: ${ERROR_CODES.INTERNAL_SERVER_ERROR}`,
+            error:`Cause: Internal error- server failed`,
+            type: `${error.name}`,
+            message: `${error.message}`,
         })
+        default:
+            res.setHeader('Content-type', 'application/json');
+            return res.status(500).json({
+                code: `Error: ${ERROR_CODES.INTERNAL_SERVER_ERROR}`,
+                error:`Cause: Internal error- server failed`,
+                type: `${error.name}`,
+                message: `${error.message}`,
+            })
+
     }
 }

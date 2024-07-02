@@ -1,6 +1,6 @@
 import os from "os";
 
-export function productPostArguments(product){
+export function postMissingProperty(product){
     let{title, description, code,price,stock,category,thumbnails}=product
 
     return `
@@ -14,22 +14,39 @@ export function productPostArguments(product){
         Optional Arguments:
             - category: type string. Received ${category}, type: ${typeof category}
             - thumbnails: type string. Received ${thumbnails}, type: ${typeof stock}
-        Error Log Details: 
-            - Error Date:${new Date().toUTCString()}
-            - Error User:${os.userInfo().username}
-            - Error Terminal:${os.hostname()}
     `
 }
 
+export function duplicatedCode(code){
+    return `
+        Product code already exists and cannot be duplicated
+        The code ${code} already exists in our database and cannot be inserted again.
+    `
+}
 
-// return `
-// Se han detectado argumentos inválidos:
-// Argumentos Obligatorios:
-//     -name: tipo string. Se recibió ${name}, ${typeof name}
-// Argumentos Opcionales:
-//     -alias, powers, team, publisher. Se recibió: ${JSON.stringify(otros)}
-// Fecha: ${new Date().toUTCString()}
-// Usuario: ${os.userInfo().username}
-// Terminal: ${os.hostname()}           
+export function notFound(filter,filterName){
+    return `
+        Element requested through identification ${filterName}# ${filter} was not found in our database.
+    `
+}
 
-// `
+export function invalidCartBody(fullBody,pid,cid){
+    return `
+        Action Failed. Failed to increase requested qty of product id# ${pid} in cart id#${cid} due to invalid format request.
+        Argument Received:
+            - The qty argument received was: ${fullBody}
+        Argument Required:       
+            -A valid JSON format is required to increase product qty in a cart (sturcture similar to a simple object).
+            -Format example: {"qty":x}. 
+            -If the body is left empty, or an empty object is sent, the default quantity increased will be +1
+            -Any other body structure (eg. arrays, simple numbers, simple values, etc) will results in request failure    
+    `
+}
+
+export function notProcessed(){
+    return `
+        Action Failed. Arguments were valid but server could not complete the request.
+        Please contact support or try again later.
+    `
+}
+    

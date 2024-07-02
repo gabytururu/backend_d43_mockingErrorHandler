@@ -1,7 +1,7 @@
 import { productsService } from "../services/productsService.js";
 import { isValidObjectId } from 'mongoose';
 import { CustomError } from "../utils/CustomError.js";
-import { productPostArguments } from "../utils/errorCauses.js";
+import { postMissingProperty, duplicatedCode, notFound } from "../utils/errorCauses.js";
 import { ERROR_CODES } from "../utils/EErrors.js";
 
 export class ProductsController{
@@ -38,27 +38,28 @@ export class ProductsController{
         }    
     }
 
-    static getProductById=async(req,res)=>{
+    static getProductById=async(req,res,next)=>{
         const id = req.params.id
-        res.setHeader('Content-type', 'application/json');
-    
+        res.setHeader('Content-type', 'application/json'); 
+       
         if(!isValidObjectId(id)){        
             return res.status(400).json({error:`The ID# provided is not an accepted Id Format in MONGODB database. Please verify your ID# and try again`})
         }
     
         try{          
             const matchingProduct = await productsService.getProductBy({_id:id})
-            if(!matchingProduct){
-                return res.status(404).json({
-                    error: `Product with ID#${id} was not found in our database. Please verify your ID# and try again`
-                })
+            if(!matchingProduct){         
+                return next(CustomError.createError(
+                    "Resource not found", 
+                    notFound(id), 
+                    `Element tied to reference #${id} was not found`, 
+                    ERROR_CODES.RESOURCE_NOT_FOUND
+                ))               
             }
+              
             return res.status(200).json({payload: matchingProduct})
         }catch(error){
-            return res.status(500).json({
-                error:`Error 500 - Server failed, please try again later`,
-                message: `${error.message}`
-            })
+            next(error)
         }
     }
 
@@ -78,37 +79,22 @@ export class ProductsController{
         }
     
         for(const property in prodToPost){
-                if(prodToPost[property] === undefined){     
-                    
-                    
-                    // return res.status(400).json({
-                    //     error:`Error 400 - Product was not added - Please try again`,
-                    //     message: `Failed to complete product posting due to missing property: ${property.toUpperCase()}. The following properties are always mandatory: title, description, code, price and stock. Please verify and try again.`                
-                    // })
+                if(prodToPost[property] === undefined){ 
                     try{
-                        CustomError.createError("Missing Properties", productPostArguments(prodToPost),`Property ${property} is missing`, ERROR_CODES.INVALID_ARGUMENTS)
+                        CustomError.createError("Missing Properties", postMissingProperty(prodToPost),`Property ${property} is missing`, ERROR_CODES.INVALID_ARGUMENTS)
                     }catch(error){
                         return next(error)
-                    }
-                   
+                    }                   
                 }            
         }  
-
-        //CustomError.createError("argumento name faltante",argumentosHeroes(req.body),"complete la propiedad name", TIPOS_ERROR.ARGUMENTOS_INVALIDOS)
         
         try{
             const duplicateCode = await productsService.getProductBy({code: code})
             if(duplicateCode){
-                return res.status(400).json({
-                    error:`Error: Product Code already exists and cannot be duplicated`,
-                    message: `Failed to complete product posting due to duplicate CODE. The code ${code} already exists in our database and cannot be inserted again. Please verify the product code and try again.`
-                })
+                CustomError.createError("Duplicate Code", duplicatedCode(code),`Code ${code} is already registered and cannot be duplicated`, ERROR_CODES.INVALID_ARGUMENTS)
             }
         }catch(error){
-            return res.status(500).json({
-                error:`Error - Server failed, please try again later`,
-                message: error.message
-            })
+            return next (error)
         }
     
         try{         

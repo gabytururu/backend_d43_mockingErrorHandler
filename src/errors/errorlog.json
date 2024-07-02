@@ -48,5 +48,469 @@
     "terminal": "DESKTOP-65AN4BL",
     "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64257, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n        Error Log Details: \n            - Error Date:Mon, 01 Jul 2024 18:07:16 GMT\n            - Error User:gallo\n            - Error Terminal:DESKTOP-65AN4BL\n    ",
     "id": 5
+  },
+  {
+    "code": 400,
+    "type": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:10:24 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64257, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n        Error Log Details: \n            - Error Date:Mon, 01 Jul 2024 18:10:24 GMT\n            - Error User:gallo\n            - Error Terminal:DESKTOP-65AN4BL\n    ",
+    "id": 6
+  },
+  {
+    "code": 400,
+    "type": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:10:42 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64257, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n        Error Log Details: \n            - Error Date:Mon, 01 Jul 2024 18:10:42 GMT\n            - Error User:gallo\n            - Error Terminal:DESKTOP-65AN4BL\n    ",
+    "id": 7
+  },
+  {
+    "type": "TypeError",
+    "msg": "duplicateCode is not a function",
+    "date": "Mon, 01 Jul 2024 18:20:24 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "id": 8
+  },
+  {
+    "type": "TypeError",
+    "msg": "duplicateCode is not a function",
+    "date": "Mon, 01 Jul 2024 18:22:21 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "id": 9
+  },
+  {
+    "code": 400,
+    "type": "Duplicate Code",
+    "msg": "Code 64257 is already registered and cannot be duplicated",
+    "date": "Mon, 01 Jul 2024 18:22:50 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Product code already exists and cannot be duplicated\n        The code 64257 already exists in our database and cannot be inserted again.\n    ",
+    "id": 10
+  },
+  {
+    "code": 400,
+    "type": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:27:04 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64255, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n    ",
+    "id": 11
+  },
+  {
+    "code": 400,
+    "type": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:35:57 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64255, type: number\n            - price: type string. Received 65, type: number\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n    ",
+    "id": 12
+  },
+  {
+    "code": 400,
+    "type": "Missing Properties",
+    "msg": "Property title is missing",
+    "date": "Mon, 01 Jul 2024 18:36:07 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received undefined, type: undefined\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64255, type: number\n            - price: type string. Received undefined, type: undefined\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n    ",
+    "id": 13
+  },
+  {
+    "code": 400,
+    "type": "Missing Properties",
+    "msg": "Property price is missing",
+    "date": "Mon, 01 Jul 2024 18:36:18 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Invalid arguments when attempting to post new product.\n        Mandatory Arguments:\n            - title: type string. Received Hamaca de outdoos y aventura super ligera secado ultra rapido FALCON XL, type: string\n            - description: type string. Received Hamaca para exteriores, secado rápido, ultra ligrea con mosquitero incluido., type: undefined\n            - code: type string. Received 64255, type: number\n            - price: type string. Received undefined, type: undefined\n            - stock: type string. Received 22, type: number\n        Optional Arguments:\n            - category: type string. Received senderismo, type: string\n            - thumbnails: type string. Received https://picsum.photos/200, type: number\n    ",
+    "id": 14
+  },
+  {
+    "code": 400,
+    "type": "Duplicate Code",
+    "msg": "Code 64255 is already registered and cannot be duplicated",
+    "date": "Mon, 01 Jul 2024 18:36:48 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Product code already exists and cannot be duplicated\n        The code 64255 already exists in our database and cannot be inserted again.\n    ",
+    "id": 15
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:01:01 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 16
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:03:24 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 17
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:03:50 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 18
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:05:22 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 19
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:06:37 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 20
+  },
+  {
+    "code": 400,
+    "type": "Duplicate Code",
+    "msg": "Code 64255 is already registered and cannot be duplicated",
+    "date": "Mon, 01 Jul 2024 19:08:27 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Product code already exists and cannot be duplicated\n        The code 64255 already exists in our database and cannot be inserted again.\n    ",
+    "id": 21
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:13:06 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 22
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:35:07 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 23
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:35:11 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 24
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:35:19 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 25
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:35:59 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 26
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 19:37:32 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 27
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 20:02:42 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 28
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 20:27:48 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 29
+  },
+  {
+    "type": "SyntaxError",
+    "msg": "Unexpected token \" in JSON at position 1",
+    "date": "Mon, 01 Jul 2024 21:44:26 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "id": 30
+  },
+  {
+    "type": "SyntaxError",
+    "msg": "Unexpected token : in JSON at position 7",
+    "date": "Mon, 01 Jul 2024 21:44:51 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "id": 31
+  },
+  {
+    "type": "ReferenceError",
+    "msg": "pid is not defined",
+    "date": "Mon, 01 Jul 2024 21:45:04 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "id": 32
+  },
+  {
+    "type": "ReferenceError",
+    "msg": "pid is not defined",
+    "date": "Mon, 01 Jul 2024 21:45:27 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "id": 33
+  },
+  {
+    "type": "ReferenceError",
+    "msg": "pid is not defined",
+    "date": "Mon, 01 Jul 2024 21:45:34 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "id": 34
+  },
+  {
+    "code": 400,
+    "type": "Invalid Body Format",
+    "msg": "Qty to increase invalid format",
+    "date": "Mon, 01 Jul 2024 21:51:39 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Action Failed. Failed to increase requested qty of product id#undefined in cart id#undefined due to invalid format request.\n        Argument Received:\n            - The qty argument received was: [5]\n        Argument Required:       \n            -A valid JSON format is required to increase product qty in a cart (sturcture similar to a simple object).\n            -Format example: {\"qty\":x}. \n            -If the body is left empty, or an empty object is sent, the default quantity increased will be +1\n            -Any other body structure (eg. arrays, simple numbers, simple values, etc) will results in request failure    \n    ",
+    "id": 35
+  },
+  {
+    "code": 400,
+    "type": "Invalid Body Format",
+    "msg": "Qty to increase invalid format",
+    "date": "Mon, 01 Jul 2024 21:52:17 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Action Failed. Failed to increase requested qty of product id#undefined in cart id#undefined due to invalid format request.\n        Argument Received:\n            - The qty argument received was: [5]\n        Argument Required:       \n            -A valid JSON format is required to increase product qty in a cart (sturcture similar to a simple object).\n            -Format example: {\"qty\":x}. \n            -If the body is left empty, or an empty object is sent, the default quantity increased will be +1\n            -Any other body structure (eg. arrays, simple numbers, simple values, etc) will results in request failure    \n    ",
+    "id": 36
+  },
+  {
+    "code": 404,
+    "type": "Resource not found",
+    "msg": "Element tied to reference #663d206d60f80adeaa82bb6b was not found",
+    "date": "Mon, 01 Jul 2024 22:14:58 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d206d60f80adeaa82bb6b was not found in our database.\n    ",
+    "id": 37
+  },
+  {
+    "type": "ReferenceError",
+    "msg": "id is not defined",
+    "date": "Mon, 01 Jul 2024 22:16:15 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "id": 38
+  },
+  {
+    "code": 404,
+    "type": "Product not found",
+    "msg": "pid was not found",
+    "date": "Mon, 01 Jul 2024 22:17:08 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification #663d209960f80adeaa82bb71 was not found in our database.\n    ",
+    "id": 39
+  },
+  {
+    "code": 404,
+    "type": "Product not found",
+    "msg": "pid was not found",
+    "date": "Mon, 01 Jul 2024 22:17:48 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification pid#663d209960f80adeaa82bb71 was not found in our database.\n    ",
+    "id": 40
+  },
+  {
+    "code": 404,
+    "type": "Cart not found",
+    "msg": "cid was not found",
+    "date": "Mon, 01 Jul 2024 22:18:56 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification cid# 667b69dafdd991fb7b6c22e0 was not found in our database.\n    ",
+    "id": 41
+  },
+  {
+    "code": 404,
+    "type": "Cart not found",
+    "msg": "cid #667b69dafdd991fb7b6c22e0 was not found",
+    "date": "Mon, 01 Jul 2024 22:20:14 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification cid# 667b69dafdd991fb7b6c22e0 was not found in our database.\n    ",
+    "id": 42
+  },
+  {
+    "code": 404,
+    "type": "Cart not found",
+    "msg": "cid #667b69dafdd991fb7b6c22e0 was not found",
+    "date": "Mon, 01 Jul 2024 22:23:28 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification cid# 667b69dafdd991fb7b6c22e0 was not found in our database.\n    ",
+    "id": 43
+  },
+  {
+    "code": 404,
+    "type": "Cart not found",
+    "msg": "cid #667b69dafdd991fb7b6c22e0 was not found",
+    "date": "Mon, 01 Jul 2024 23:45:20 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification cid# 667b69dafdd991fb7b6c22e0 was not found in our database.\n    ",
+    "id": 44
+  },
+  {
+    "code": 400,
+    "type": "Invalid Body Format",
+    "msg": "Qty to increase invalid format",
+    "date": "Mon, 01 Jul 2024 23:45:43 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Action Failed. Failed to increase requested qty of product id# undefined in cart id#undefined due to invalid format request.\n        Argument Received:\n            - The qty argument received was: [5]\n        Argument Required:       \n            -A valid JSON format is required to increase product qty in a cart (sturcture similar to a simple object).\n            -Format example: {\"qty\":x}. \n            -If the body is left empty, or an empty object is sent, the default quantity increased will be +1\n            -Any other body structure (eg. arrays, simple numbers, simple values, etc) will results in request failure    \n    ",
+    "id": 45
+  },
+  {
+    "code": 400,
+    "type": "Invalid Body Format",
+    "msg": "Qty to increase invalid format",
+    "date": "Mon, 01 Jul 2024 23:46:50 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Action Failed. Failed to increase requested qty of product id# undefined in cart id#undefined due to invalid format request.\n        Argument Received:\n            - The qty argument received was: [5]\n        Argument Required:       \n            -A valid JSON format is required to increase product qty in a cart (sturcture similar to a simple object).\n            -Format example: {\"qty\":x}. \n            -If the body is left empty, or an empty object is sent, the default quantity increased will be +1\n            -Any other body structure (eg. arrays, simple numbers, simple values, etc) will results in request failure    \n    ",
+    "id": 46
+  },
+  {
+    "code": 400,
+    "type": "Invalid Body Format",
+    "msg": "Qty to increase invalid format",
+    "date": "Mon, 01 Jul 2024 23:46:56 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Action Failed. Failed to increase requested qty of product id# undefined in cart id#undefined due to invalid format request.\n        Argument Received:\n            - The qty argument received was: [5]\n        Argument Required:       \n            -A valid JSON format is required to increase product qty in a cart (sturcture similar to a simple object).\n            -Format example: {\"qty\":x}. \n            -If the body is left empty, or an empty object is sent, the default quantity increased will be +1\n            -Any other body structure (eg. arrays, simple numbers, simple values, etc) will results in request failure    \n    ",
+    "id": 47
+  },
+  {
+    "code": 404,
+    "type": "Cart not found",
+    "msg": "cid #667b69dafdd991fb7b6c22e0 was not found",
+    "date": "Mon, 01 Jul 2024 23:47:06 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification cid# 667b69dafdd991fb7b6c22e0 was not found in our database.\n    ",
+    "id": 48
+  },
+  {
+    "code": 404,
+    "type": "Product not found",
+    "msg": "pid  #663d209960f80adeaa82bb72 was not found",
+    "date": "Mon, 01 Jul 2024 23:47:18 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification pid# 663d209960f80adeaa82bb72 was not found in our database.\n    ",
+    "id": 49
+  },
+  {
+    "code": 404,
+    "type": "Product not found",
+    "msg": "pid  #663d209960f80adeaa82bb75 was not found",
+    "date": "Mon, 01 Jul 2024 23:57:45 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification pid# 663d209960f80adeaa82bb75 was not found in our database.\n    ",
+    "id": 50
+  },
+  {
+    "code": 404,
+    "type": "Product not found",
+    "msg": "pid  #663d209960f80adeaa82bb74 was not found",
+    "date": "Mon, 01 Jul 2024 23:58:06 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification pid# 663d209960f80adeaa82bb74 was not found in our database.\n    ",
+    "id": 51
+  },
+  {
+    "code": 404,
+    "type": "Product not found",
+    "msg": "pid  #663d209960f80adeaa82bb74 was not found",
+    "date": "Tue, 02 Jul 2024 00:34:29 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification pid# 663d209960f80adeaa82bb74 was not found in our database.\n    ",
+    "id": 52
+  },
+  {
+    "code": 404,
+    "type": "Product not found",
+    "msg": "pid  #663d209960f80adeaa82bb77 was not found",
+    "date": "Tue, 02 Jul 2024 00:35:43 GMT",
+    "user": "gallo",
+    "terminal": "DESKTOP-65AN4BL",
+    "details": "\n        Element requested through identification pid# 663d209960f80adeaa82bb77 was not found in our database.\n    ",
+    "id": 53
   }
 ]
