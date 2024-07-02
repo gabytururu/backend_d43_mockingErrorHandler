@@ -241,52 +241,7 @@ export class CartsController{
         }catch(error){
             next(error)
         }  
-        
-        // try{
-        //     const productAlreadyInCart = await cartsService.findProductInCart(cid,pid) 
-        //     if(productAlreadyInCart){
-        //         try{
-        //             const updatedCart = await cartsService.updateProductQtyInCart(cid,pid,qty)
-        //             if(!updatedCart){
-        //                 return res.status(404).json({
-        //                     error: `ERROR: Failed to update the intended product quantity in cart`,
-        //                     message: `Failed to update quantity of product id#${pid} in cart id#${cid} Please verify and try again`
-        //                 })
-        //             }
-        //             return res.status(200).json({ updatedCart });
-        //         }catch(error){
-        //             return res.status(500).json({
-        //                 error:`Error 500 Server failed unexpectedly, please try again later`,
-        //                 message: `${error.message}`
-        //             })
-        //         }
-        //     }
-        // }catch(error){
-        //     return res.status(500).json({
-        //         error:`Error 500 Server failed unexpectedly, please try again later`,
-        //         message: `${error.message}`
-        //     })
-        // }
-       
-    
-        //future improvement - seek for better method (change +1 for +N even on first iteration if desired)
-        // try{
-        //     const updatedCart = await cartsService.addProductToCart(cid,pid)
-        //     if(!updatedCart){
-        //         return res.status(404).json({
-        //             error: `ERROR: Failed to update the intended product in cart`,
-        //             message: `Failed to increase quantity of product id#${pid} in cart id#${cid} Please verify and try again`
-        //         })
-        //     }
-        //     return res.status(200).json({
-        //         updatedCart
-        //     })   
-        // }catch(error){
-        //     return res.status(500).json({
-        //         error:`Error 500 Server failed unexpectedly, please try again later`,
-        //         message: `${error.message}`
-        //     })
-        // }
+  
     }
 
     static deleteAllProductsInCart=async(req,res)=>{

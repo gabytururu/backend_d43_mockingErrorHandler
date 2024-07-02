@@ -11,7 +11,7 @@ export const errorHandler=async(error,req,res,next)=>{
     const errorLogUrl= path.join(__dirname,'errors','errorlog.json')
     const errorReason= error.cause?error.cause:error.message
     const fullError = error
-    console.log('el error completo -->',error)
+   
     const errorDetails = {
         code:error.code,
         type: error.name,

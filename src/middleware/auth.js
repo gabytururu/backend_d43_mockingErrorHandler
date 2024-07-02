@@ -17,16 +17,8 @@ export const customAuth=(permisos=[])=>{
                     ERROR_CODES.AUTENTICATION                    
                 )
             )
-            // res.setHeader('Content-type', 'application/json');
-            // return res.status(401).json({
-            //     error:`Invalid credentials - no authenticated users were found.`,
-            // })
         }
         if(!permisos.includes(req.session.user.rol.toLowerCase())){
-            // res.setHeader('Content-Type','application/json');
-            // return res.status(403).json({
-            //     error:`Invalid credentials - insufficient privileges to access this resource.`,
-            // })
             return next(
                 CustomError.createError(
                     "Authorization failed",

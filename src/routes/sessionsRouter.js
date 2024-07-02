@@ -58,9 +58,7 @@ router.post('/login',passportCallError("login"),async(req,res)=>{
 
 router.get('/current', customAuth(["user"]), async(req,res)=>{
    // const currentUser = req.session.user
-    //console.log('el current user original',currentUser)
     const currentUserDTO = new userDTO(req.session.user)
-    // console.log('el current user Con DTO',currentUserDTO)
 
     const acceptHeader = req.headers['accept']
     if(acceptHeader.includes('text/html')){
@@ -80,15 +78,9 @@ router.get('/current', customAuth(["user"]), async(req,res)=>{
         //     carrito:currentUser.cart
         // }    
         payload:{
-            // nombre: currentUser.first_name,
-            // apellido: currentUser.last_name,
             fullName:currentUserDTO.fullName,
             email: currentUserDTO.email,
             cart:currentUserDTO.cart
-            // edad: currentUser.age,
-            // email: currentUser.email,
-            // rol:currentUser.rol,
-            // carrito:currentUser.cart
         }    
     })
 })

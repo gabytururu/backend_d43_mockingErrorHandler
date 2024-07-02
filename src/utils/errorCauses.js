@@ -57,7 +57,6 @@ export function authentication(){
     `
 }
 
-
 export function authorization(){
     return `
         Invalid credentials - user logged has insufficient privileges to access this resource.
